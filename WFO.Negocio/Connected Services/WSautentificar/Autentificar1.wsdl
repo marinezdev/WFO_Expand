@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AccesoAP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdAplicacion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccesoAPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccesoAPResult" type="tns:AccesoUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccesoUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConsultaAcceso" type="tns:ArrayOfDetalleAcceso" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetalleAcceso">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleAcceso" nillable="true" type="tns:DetalleAcceso" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleAcceso">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="usuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CerrarSesionAP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CerrarSesionAPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CerrarSesionAPResult" type="tns:AccesoUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarValidarAcceso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contra" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarValidarAccesoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarValidarAccesoResult" type="tns:ConsultasUsuaio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsultasUsuaio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="consulta" type="tns:ArrayOfDetalleUsuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetalleUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleUsuario" nillable="true" type="tns:DetalleUsuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contraseña" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdRol" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RolNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaConectado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaCambioClave" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Correo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Conectado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RolAcceso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ruta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="salida" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AccesoAPSoapIn">
+    <wsdl:part name="parameters" element="tns:AccesoAP" />
+  </wsdl:message>
+  <wsdl:message name="AccesoAPSoapOut">
+    <wsdl:part name="parameters" element="tns:AccesoAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="CerrarSesionAPSoapIn">
+    <wsdl:part name="parameters" element="tns:CerrarSesionAP" />
+  </wsdl:message>
+  <wsdl:message name="CerrarSesionAPSoapOut">
+    <wsdl:part name="parameters" element="tns:CerrarSesionAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarValidarAccesoSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarValidarAcceso" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarValidarAccesoSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarValidarAccesoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AutentificarSoap">
+    <wsdl:operation name="AccesoAP">
+      <wsdl:input message="tns:AccesoAPSoapIn" />
+      <wsdl:output message="tns:AccesoAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesionAP">
+      <wsdl:input message="tns:CerrarSesionAPSoapIn" />
+      <wsdl:output message="tns:CerrarSesionAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarValidarAcceso">
+      <wsdl:input message="tns:SeleccionarValidarAccesoSoapIn" />
+      <wsdl:output message="tns:SeleccionarValidarAccesoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AutentificarSoap" type="tns:AutentificarSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccesoAP">
+      <soap:operation soapAction="http://tempuri.org/AccesoAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesionAP">
+      <soap:operation soapAction="http://tempuri.org/CerrarSesionAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarValidarAcceso">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarValidarAcceso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AutentificarSoap12" type="tns:AutentificarSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccesoAP">
+      <soap12:operation soapAction="http://tempuri.org/AccesoAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesionAP">
+      <soap12:operation soapAction="http://tempuri.org/CerrarSesionAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarValidarAcceso">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarValidarAcceso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Autentificar">
+    <wsdl:port name="AutentificarSoap" binding="tns:AutentificarSoap">
+      <soap:address location="https://www.cloud-asae.com.mx/Login_WS/Autentificar.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AutentificarSoap12" binding="tns:AutentificarSoap12">
+      <soap12:address location="https://www.cloud-asae.com.mx/Login_WS/Autentificar.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
